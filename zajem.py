@@ -1,9 +1,16 @@
+"""Tu se nahajajo funkcije, ki preberejo vsebino spletne strani,
+jo shranijo v datoteko, nato iz datoteke izluščijo pomembne podatke, 
+te shranijo v seznam slovarjev, ki ga nato prepišejo v csv datoteko"""
+
+#najprej uvozim vse pakete, ki jih bom potreboval
 import requests
 import csv
 import re
 
 url_spletne_strani = 'https://www.worlddata.info/cost-of-living.php'
+# v to datoteko bom shranil vsebino spletne strani
 shrani_sem = 'primerjava_drzav.html'
+# v to pa končno tabelo s podatki
 csv_drzav = 'drzave.csv'
 
 def url_v_niz(url):
@@ -16,11 +23,13 @@ def url_v_niz(url):
     except Exception:
         print(f'Napaka v prepoznavanju spletne strani')
 
+# spodnja funkcija bo izpisala vsebino spletne strani v novo datoteko
 def shrani_niz_v_datoteko(niz, datoteka):
     with open(datoteka, 'w', encoding='utf-8') as dat:
         dat.write(niz)
     return None
 
+# spodnja funkcija združi zgornji dve
 def preberi_in_shrani_url(url, datoteka):
     niz = url_v_niz(url)
     shrani_niz_v_datoteko(niz, datoteka)
@@ -36,12 +45,10 @@ def izlusci_vrstice(vsebina_strani):
     return re.findall(vzorec_vrstice, vsebina_strani, re.DOTALL)
 
 
-
 def preberi_in_izlusci_vrstice(datoteka):
     besedilo = preberi_datoteko(datoteka)
     vrstice = izlusci_vrstice(besedilo)
     return vrstice
-
 # funckija vrne vrstice oblike <tr>...</tr>, kjer so zajeti podatki iz spletne strani
 
 def izlusci_vse_podatke(vrstice_tabele):
@@ -60,6 +67,7 @@ def izlusci_vse_podatke(vrstice_tabele):
 
 # zdaj funkcija iz vsake vrstice tabele naredi po en slovar z ustreznimi podatki
 # potrebno je še, da vse slovarje dam v skupen seznam
+
 
 def dodaj_slovarje_v_seznam(vrste):
     seznam = []
