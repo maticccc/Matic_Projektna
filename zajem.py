@@ -70,4 +70,20 @@ def dodaj_slovarje_v_seznam(vrste):
 
 def prepisi_v_csv(seznam):
     naslovi_stolpcev = ['Drzava', 'Indeks stroskov', 'Mesecni dohodek', 'Indeks kupne moci']
-    
+    with open(csv_drzav, 'w', newline='') as csv_datoteka:
+        writer = csv.DictWriter(csv_datoteka, fieldnames=naslovi_stolpcev)
+        writer.writeheader()
+        for vrsta in seznam:
+            writer.writerow(vrsta)
+
+# manjka samo še funkcija, ki skupno izvede vse zgornje funkcije
+
+def naredi_vse(url, datoteka):
+    preberi_in_shrani_url(url, datoteka)
+    vrstice = preberi_in_izlusci_vrstice(datoteka)
+    koncni_seznam = dodaj_slovarje_v_seznam(vrstice)
+    csv_dat = prepisi_v_csv(koncni_seznam) 
+
+# na koncu še poženem zadnjo funkcijo, ki ustvari novo csv datoteko:
+
+naredi_vse(url_spletne_strani, shrani_sem)
