@@ -25,7 +25,7 @@ def preberi_in_shrani_url(url, datoteka):
     niz = url_v_niz(url)
     shrani_niz_v_datoteko(niz, datoteka)
 
-preberi_in_shrani_url(url_spletne_strani, shrani_sem)
+
 
 def preberi_datoteko(datoteka):
     with open(datoteka, 'r', encoding='utf-8') as dat:
@@ -42,7 +42,6 @@ def preberi_in_izlusci_vrstice(datoteka):
     vrstice = izlusci_vrstice(besedilo)
     return vrstice
 
-vrstice = preberi_in_izlusci_vrstice('primerjava_drzav.html')
 # funckija vrne vrstice oblike <tr>...</tr>, kjer so zajeti podatki iz spletne strani
 
 def izlusci_vse_podatke(vrstice_tabele):
@@ -59,6 +58,16 @@ def izlusci_vse_podatke(vrstice_tabele):
 
     return slovar
 
+# zdaj funkcija iz vsake vrstice tabele naredi po en slovar z ustreznimi podatki
+# potrebno je še, da vse slovarje dam v skupen seznam
 
+def dodaj_slovarje_v_seznam(vrste):
+    seznam = []
+    for vrsta in vrste:
+        seznam.append(izlusci_vse_podatke(vrsta))
+    return seznam
+# seznam, ki ga vrne funkcija je končen in vsebuje vse potrebne podatke za izdelavo csv datoteke
 
-
+def prepisi_v_csv(seznam):
+    naslovi_stolpcev = ['Drzava', 'Indeks stroskov', 'Mesecni dohodek', 'Indeks kupne moci']
+    
