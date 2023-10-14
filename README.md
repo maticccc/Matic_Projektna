@@ -1,6 +1,6 @@
 # Matic_Projektna
 
-Iz [https://www.worlddata.info/cost-of-living.php](spletne strani), ki primerja življenske stroške in kupno moč prebivalstva v povezavi s povprečnim dohodkom, bom analiziral podatke. Funkcije, ki pomembne podatke izluščijo in jih nato pretvorijo v csv datoteko, so zapisane v datoteki zajem.py, s Pandasom pa bom podatke obdelal v datoteki obdelava.ipynb.
+Iz [spletne strani](https://www.worlddata.info/cost-of-living.php), ki primerja življenske stroške in kupno moč prebivalstva v povezavi s povprečnim dohodkom, bom analiziral podatke. Funkcije, ki pomembne podatke izluščijo in jih nato pretvorijo v csv datoteko, so zapisane v datoteki zajem.py, s Pandasom pa bom podatke obdelal v datoteki obdelava.ipynb.
 
 V glavnem bodo stvari, ki zadevajo vsebino spletne strani opisane in razložene v ipynb datoteki. Tu pa samo na hitro o projektni nalogi. Iz spletne strani sem torej izluščil podatke o:
 - imenu države,
