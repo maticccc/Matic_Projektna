@@ -7,4 +7,5 @@ V glavnem bodo stvari, ki zadevajo vsebino spletne strani opisane in razložene 
 - indeksu stroškov,
 - mesečnemu dohodku in
 - indeksu kupne moči.
+
 To sem storil s pomočjo knjižnic requests, re ter csv. Podatke pa bom obdelal z uporabo knjižnjic Pandas ter matplotlib.
